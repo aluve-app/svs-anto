@@ -1272,12 +1272,20 @@ const AddProjectSheet = {
       lead_source: leadSource
     };
 
+    const defaultFollowupDate = new Date();
+    defaultFollowupDate.setDate(defaultFollowupDate.getDate() + 3);
+
     const activityPayload = {
       activity_id: activityId,
       project_id: projectId,
       activity_type: activityType,
       activity_note: note,
       pipeline_stage: 'New Visit',
+      // Follow up itu WAJIB diisi menurut backend untuk semua aktivitas
+      // (bukan cuma di Catat Aktivitas) — karena form Tambah Project ini
+      // sengaja tidak menanyakan tanggal follow up ke sales (biar tidak
+      // kepanjangan formnya), default-nya 3 hari dari sekarang.
+      next_followup_date: Utils.formatDateForInput(defaultFollowupDate),
       photo_ids: photoAssignments.map((p) => p.photoId)
     };
 
