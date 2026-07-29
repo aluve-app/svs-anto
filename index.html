@@ -244,6 +244,16 @@
         </div>
 
         <div class="form-group">
+          <label class="form-label" for="select-activity-type-new">Jenis Aktivitas (Kunjungan Pertama) *</label>
+          <select id="select-activity-type-new" class="form-select" required></select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="input-activity-note-new">Catatan Kunjungan (opsional)</label>
+          <textarea id="input-activity-note-new" class="form-textarea" rows="2" placeholder="Contoh: Survei lokasi & perkenalan produk"></textarea>
+        </div>
+
+        <div class="form-group">
           <label class="form-label">Info Kontak di Lokasi (opsional)</label>
           <input id="input-contact-name" class="form-input" type="text" placeholder="Nama kontak" />
         </div>
@@ -326,6 +336,24 @@
             <button class="chip" type="button" data-followup-days="7">1 Minggu</button>
           </div>
           <input id="input-followup-date" class="form-input" type="date" />
+        </div>
+
+        <!-- Hanya ditampilkan kalau project ini BELUM punya kontak
+             tersimpan sama sekali — supaya tidak menanyakan hal yang
+             sama berulang-ulang di setiap kunjungan berikutnya. -->
+        <div id="update-progress-contact-group" hidden>
+          <div class="form-group">
+            <label class="form-label">Info Kontak di Lokasi (opsional, belum pernah diisi)</label>
+            <input id="input-contact-name-update" class="form-input" type="text" placeholder="Nama kontak" />
+          </div>
+          <div class="form-group">
+            <input id="input-contact-phone-update" class="form-input" type="tel" placeholder="No. Telepon/WA" />
+          </div>
+          <div class="form-group">
+            <select id="select-contact-role-update" class="form-select">
+              <option value="">Role Kontak (opsional)</option>
+            </select>
+          </div>
         </div>
 
         <button type="submit" class="primary-button ripple full-width">SIMPAN</button>
